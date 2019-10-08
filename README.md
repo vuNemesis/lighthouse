@@ -24,7 +24,11 @@ Laravel application. It greatly reduces the boilerplate required to create a sch
 it integrates well with any Laravel project, and it's highly customizable
 giving you full control over your data.
 
+<<<<<<< HEAD
 ## Suscriptions (for Apollo) 
+=======
+## Suscriptions
+>>>>>>> 4c27175be15854bdfbd47783a3f72f2307696526
 ## [Documentation](https://lighthouse-php.com/)
 
 The documentation lives at [lighthouse-php.com](https://lighthouse-php.com/).
