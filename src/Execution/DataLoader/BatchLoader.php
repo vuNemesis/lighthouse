@@ -12,6 +12,8 @@ abstract class BatchLoader
 {
     use HandlesCompositeKey;
 
+    public $name = '';
+
     /**
      * Keys to resolve.
      *
