@@ -60,12 +60,18 @@ abstract class BatchLoader
         }
 
         // Only register a new instance if it is not already bound
-        $instance = app()->bound($instanceName)
-            ? app($instanceName)
-            : app()->instance(
+    
+        if(app()->bound($instanceName)) {
+            $instance = app($instanceName);
+        } else {
+            $instance = app()->instance(
                 $instanceName,
                 app()->makeWith($loaderClass, $constructorArgs)
             );
+
+            $instance->name = $instanceName;
+            app()->tag($instanceName, 'BatchLoader');
+        }
 
         if (! $instance instanceof self) {
             throw new Exception(
@@ -92,6 +98,11 @@ abstract class BatchLoader
                 return ! is_numeric($path);
             })
             ->implode('_');
+    }
+
+    public function reset()
+    {
+        $this->hasLoaded = false;
     }
 
     /**
